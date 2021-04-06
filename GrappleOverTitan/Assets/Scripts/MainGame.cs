@@ -64,7 +64,6 @@ public class MainGame : MonoBehaviour
 
     public void Score()
     {
-        Debug.Log("Score");
         score++;
         var scoreObject = GameObject.FindWithTag("Score");
         if(scoreObject != null)

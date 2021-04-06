@@ -47,7 +47,6 @@ public class MainGame : MonoBehaviour
             var titanObject = Instantiate(titanPrefab,
                 new Vector3(titanSpawnX, Random.value * 4 - 10, 0),
                 Quaternion.identity);
-            titanObject.GetComponent<Titan>().mainGame = this.gameObject;
 
             titanSpawnX += 5 + Random.value * 5;
         }
@@ -60,15 +59,16 @@ public class MainGame : MonoBehaviour
 
             treeSpawnX += 5 + Random.value * 5;
         }
-    }
 
-    public void Score()
-    {
-        score++;
-        var scoreObject = GameObject.FindWithTag("Score");
-        if(scoreObject != null)
+        if(playerObject != null)
         {
-            scoreObject.GetComponent<TMPro.TextMeshProUGUI>().text = "" + score;
+            score = (int)Mathf.Max(score, playerObject.transform.position.x);
+
+            var scoreObject = GameObject.FindWithTag("Score");
+            if(scoreObject != null)
+            {
+                scoreObject.GetComponent<TMPro.TextMeshProUGUI>().text = "" + score;
+            }
         }
     }
 }

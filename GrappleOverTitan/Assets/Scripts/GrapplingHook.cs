@@ -9,17 +9,23 @@ public class GrapplingHook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(anchored)
+        var playerObject = GameObject.FindWithTag("Player");
+
+        if (playerObject != null)
         {
-            var playerObject = GameObject.FindWithTag("Player");
-            playerObject.GetComponent<Rigidbody2D>()
-                .AddForce(Vector3.Normalize((this.transform.position - playerObject.transform.position)) * 10.0f);
+            Debug.DrawLine(playerObject.transform.position, this.transform.position, Color.white, 0.1f);
+
+            if (anchored)
+            {
+                playerObject.GetComponent<Rigidbody2D>()
+                    .AddForce(Vector3.Normalize((this.transform.position - playerObject.transform.position)) * 10.0f);
+            }
         }
     }
 

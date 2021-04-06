@@ -31,8 +31,6 @@ public class MainGame : MonoBehaviour
             {
                 if(playerObject != null)
                 {
-                    Debug.DrawLine(playerObject.transform.position, hit.point, Color.white, 2.5f);
-
                     grapplingHookObject = Instantiate(grapplingHookPrefab, playerObject.transform.position, playerObject.transform.rotation);
                     grapplingHookObject.GetComponent<Rigidbody2D>()
                         .AddForce(Vector3.Normalize((Vector3)hit.point - playerObject.transform.position) * 2000);

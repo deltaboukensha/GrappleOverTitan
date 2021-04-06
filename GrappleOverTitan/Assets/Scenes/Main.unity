@@ -1179,6 +1179,10 @@ PrefabInstance:
       propertyPath: m_AngularDrag
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4360658857822321870, guid: 91733b0844850a64e88c490a17caefe7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 440896785c8667e4d80b3a3cc56ee9ea, type: 3}
     - target: {fileID: 4360658857822321871, guid: 91733b0844850a64e88c490a17caefe7, type: 3}
       propertyPath: m_RootOrder
       value: 3

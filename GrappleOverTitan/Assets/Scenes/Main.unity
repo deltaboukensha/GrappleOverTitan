@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 1414883293}
   m_Layer: 5
   m_Name: Score
-  m_TagString: Untagged
+  m_TagString: Score
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1036,6 +1036,14 @@ PrefabInstance:
     - target: {fileID: 4360658857822321867, guid: 91733b0844850a64e88c490a17caefe7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360658857822321868, guid: 91733b0844850a64e88c490a17caefe7, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4360658857822321868, guid: 91733b0844850a64e88c490a17caefe7, type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4360658857822321871, guid: 91733b0844850a64e88c490a17caefe7, type: 3}
       propertyPath: m_RootOrder

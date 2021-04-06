@@ -19,7 +19,7 @@ public class MainCamera : MonoBehaviour
         {
             this.transform.position = new Vector3(
                 playerObject.transform.position.x,
-                this.transform.position.y,
+                playerObject.transform.position.y,
                 this.transform.position.z
             );
         }

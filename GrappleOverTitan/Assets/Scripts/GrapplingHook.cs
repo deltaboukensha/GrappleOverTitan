@@ -31,7 +31,6 @@ public class GrapplingHook : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("OnCollisionEnter2D");
         this.GetComponent<Rigidbody2D>().simulated = false;
         anchored = true;
     }

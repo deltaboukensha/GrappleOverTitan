@@ -12,6 +12,7 @@ public class MainGame : MonoBehaviour
     private GameObject grapplingHookObject;
     private float titanSpawnX = 15;
     private float treeSpawnX = 15;
+    private int score = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,16 +26,11 @@ public class MainGame : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            var hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if(hit.collider != null)
+            if(playerObject != null)
             {
-                if(playerObject != null)
-                {
-                    grapplingHookObject = Instantiate(grapplingHookPrefab, playerObject.transform.position, playerObject.transform.rotation);
-                    grapplingHookObject.GetComponent<Rigidbody2D>()
-                        .AddForce(Vector3.Normalize((Vector3)hit.point - playerObject.transform.position) * 2000);
-                }
+                grapplingHookObject = Instantiate(grapplingHookPrefab, playerObject.transform.position, playerObject.transform.rotation);
+                grapplingHookObject.GetComponent<Rigidbody2D>()
+                    .AddForce(Vector3.Normalize((Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position) * 4000.0f);
             }
         }
 
@@ -49,8 +45,9 @@ public class MainGame : MonoBehaviour
         if(playerObject != null && playerObject.transform.position.x + 20 >= titanSpawnX)
         {
             var titanObject = Instantiate(titanPrefab,
-                new Vector3(titanSpawnX, Random.value * 4 - 7, 0),
+                new Vector3(titanSpawnX, Random.value * 4 - 10, 0),
                 Quaternion.identity);
+            titanObject.GetComponent<Titan>().mainGame = this.gameObject;
 
             titanSpawnX += 5 + Random.value * 5;
         }
@@ -62,6 +59,17 @@ public class MainGame : MonoBehaviour
                 Quaternion.identity);
 
             treeSpawnX += 5 + Random.value * 5;
+        }
+    }
+
+    public void Score()
+    {
+        Debug.Log("Score");
+        score++;
+        var scoreObject = GameObject.FindWithTag("Score");
+        if(scoreObject != null)
+        {
+            scoreObject.GetComponent<TMPro.TextMeshProUGUI>().text = "" + score;
         }
     }
 }

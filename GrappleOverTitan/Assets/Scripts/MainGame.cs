@@ -5,11 +5,13 @@ using UnityEngine;
 public class MainGame : MonoBehaviour
 {
     public GameObject grapplingHookPrefab;
+    public GameObject grapplingCablePrefab;
     public GameObject titanPrefab;
     public GameObject playerPrefab;
     public GameObject treeBranchPrefab;
 
     private GameObject grapplingHookObject;
+    private GameObject grapplingCableObject;
     private float titanSpawnX = 15;
     private float treeSpawnX = 15;
     private int score = 0;
@@ -35,6 +37,14 @@ public class MainGame : MonoBehaviour
                 );
                 grapplingHookObject.GetComponent<Rigidbody2D>()
                     .AddForce(Vector3.Normalize((Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position) * 4000.0f);
+
+                grapplingCableObject = Instantiate(grapplingCablePrefab,
+                    playerObject.transform.position,
+                    Quaternion.identity
+                );
+                var c = grapplingCableObject.GetComponent<GrapplingCable>();
+                c.playerObject = playerObject;
+                c.grapplingHookObject = grapplingHookObject;
             }
         }
 
@@ -43,6 +53,7 @@ public class MainGame : MonoBehaviour
             if(grapplingHookObject != null)
             {
                 Destroy(grapplingHookObject);
+                Destroy(grapplingCableObject);
             }
         }
 

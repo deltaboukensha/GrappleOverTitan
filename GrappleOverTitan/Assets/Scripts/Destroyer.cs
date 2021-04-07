@@ -11,8 +11,8 @@ public class Destroyer : MonoBehaviour
         {
             this.transform.position = new Vector3(
                 Mathf.Max(this.transform.position.x, playerObject.transform.position.x - 100),
-                0,
-                0
+                this.transform.position.y,
+                this.transform.position.z
             );
         }
     }

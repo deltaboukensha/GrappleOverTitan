@@ -60,7 +60,7 @@ public class MainGame : MonoBehaviour
         if(playerObject != null && playerObject.transform.position.x + 20 >= titanSpawnX)
         {
             var titanObject = Instantiate(titanPrefab,
-                new Vector3(titanSpawnX, Random.value * 4 - 10, 0),
+                new Vector3(titanSpawnX, Random.value * 4 - 5, 0),
                 Quaternion.identity);
 
             titanSpawnX += 5 + Random.value * 5;
@@ -69,10 +69,10 @@ public class MainGame : MonoBehaviour
         if(playerObject != null && playerObject.transform.position.x + 20 >= treeSpawnX)
         {
             var treeBranchObject = Instantiate(treeBranchPrefab,
-                new Vector3(treeSpawnX, 5 - Random.value * 4, 0),
+                new Vector3(treeSpawnX, 7 - Random.value * 6, 0),
                 Quaternion.identity);
 
-            treeSpawnX += 5 + Random.value * 5;
+            treeSpawnX += 4 + Random.value * 5;
         }
 
         if(playerObject != null)

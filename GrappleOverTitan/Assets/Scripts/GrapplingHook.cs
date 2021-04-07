@@ -19,8 +19,6 @@ public class GrapplingHook : MonoBehaviour
 
         if (playerObject != null)
         {
-            Debug.DrawLine(playerObject.transform.position, this.transform.position, Color.white, 0.1f);
-
             if (anchored)
             {
                 playerObject.GetComponent<Rigidbody2D>()

@@ -10,7 +10,7 @@ public class Destroyer : MonoBehaviour
         if(playerObject != null)
         {
             this.transform.position = new Vector3(
-                Mathf.Max(this.transform.position.x, playerObject.transform.position.x - 20),
+                Mathf.Max(this.transform.position.x, playerObject.transform.position.x - 100),
                 0,
                 0
             );

@@ -28,7 +28,11 @@ public class MainGame : MonoBehaviour
         {
             if(playerObject != null)
             {
-                grapplingHookObject = Instantiate(grapplingHookPrefab, playerObject.transform.position, playerObject.transform.rotation);
+                grapplingHookObject = Instantiate(grapplingHookPrefab,
+                    playerObject.transform.position,
+                    Quaternion.LookRotation(
+                        (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position, Vector3.forward)
+                );
                 grapplingHookObject.GetComponent<Rigidbody2D>()
                     .AddForce(Vector3.Normalize((Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position) * 4000.0f);
             }

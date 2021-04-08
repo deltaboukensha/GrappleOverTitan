@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 661051208685891828}
   - component: {fileID: 6260013810320994123}
   - component: {fileID: 8152338502062799986}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: GrapplingHook
   m_TagString: Untagged
   m_Icon: {fileID: 0}

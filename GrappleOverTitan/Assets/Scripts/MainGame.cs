@@ -12,9 +12,12 @@ public class MainGame : MonoBehaviour
 
     private GameObject grapplingHookObject;
     private GameObject grapplingCableObject;
+    private GameObject grapplingHookObject2;
+    private GameObject grapplingCableObject2;
     private float titanSpawnX = 15;
     private float treeSpawnX = 15;
     private int score = 0;
+    private int subtract = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,15 @@ public class MainGame : MonoBehaviour
     void Update()
     {
         var playerObject = GameObject.FindWithTag("Player");
+
+        if(playerObject == null)
+        {
+            subtract = (int)Camera.main.transform.position.x;
+            Instantiate(playerPrefab,
+                new Vector3(Camera.main.transform.position.x, 20, 0),
+                Quaternion.identity
+            );
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -53,7 +65,46 @@ public class MainGame : MonoBehaviour
             if(grapplingHookObject != null)
             {
                 Destroy(grapplingHookObject);
+            }
+
+            if(grapplingCableObject != null)
+            {
                 Destroy(grapplingCableObject);
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if(playerObject != null)
+            {
+                grapplingHookObject2 = Instantiate(grapplingHookPrefab,
+                    playerObject.transform.position,
+                    Quaternion.LookRotation(
+                        (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position, Vector3.forward)
+                );
+                grapplingHookObject2.GetComponent<Rigidbody2D>()
+                    .AddForce(Vector3.Normalize((Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position) * 4000.0f);
+
+                grapplingCableObject2 = Instantiate(grapplingCablePrefab,
+                    playerObject.transform.position,
+                    Quaternion.identity
+                );
+                var c = grapplingCableObject2.GetComponent<GrapplingCable>();
+                c.playerObject = playerObject;
+                c.grapplingHookObject = grapplingHookObject2;
+            }
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            if(grapplingHookObject2 != null)
+            {
+                Destroy(grapplingHookObject2);
+            }
+
+            if(grapplingCableObject2 != null)
+            {
+                Destroy(grapplingCableObject2);
             }
         }
 
@@ -77,7 +128,7 @@ public class MainGame : MonoBehaviour
 
         if(playerObject != null)
         {
-            score = (int)Mathf.Max(score, playerObject.transform.position.x);
+            score = (int)Mathf.Max(score, playerObject.transform.position.x) - subtract;
 
             var scoreObject = GameObject.FindWithTag("Score");
             if(scoreObject != null)

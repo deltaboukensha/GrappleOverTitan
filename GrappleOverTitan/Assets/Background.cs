@@ -14,7 +14,7 @@ public class Background : MonoBehaviour
 
         if(playerObject != null)
         {
-            if(background1.GetComponent<BoxCollider2D>().bounds.Contains(playerObject.transform.position))
+            if(background1.transform.position.x - background1.GetComponent<BoxCollider2D>().size.x <= playerObject.transform.position.x && playerObject.transform.position.x <= background1.transform.position.x + background1.GetComponent<BoxCollider2D>().size.x)
             {
                 background3.transform.position = new Vector3(
                     background1.transform.position.x - background1.GetComponent<BoxCollider2D>().size.x,
@@ -29,7 +29,7 @@ public class Background : MonoBehaviour
                 );
             }
 
-            if(background2.GetComponent<BoxCollider2D>().bounds.Contains(playerObject.transform.position))
+            if(background2.transform.position.x - background2.GetComponent<BoxCollider2D>().size.x <= playerObject.transform.position.x && playerObject.transform.position.x <= background2.transform.position.x + background2.GetComponent<BoxCollider2D>().size.x)
             {
                 background1.transform.position = new Vector3(
                     background2.transform.position.x - background2.GetComponent<BoxCollider2D>().size.x,
@@ -44,7 +44,7 @@ public class Background : MonoBehaviour
                 );
             }
 
-            if(background3.GetComponent<BoxCollider2D>().bounds.Contains(playerObject.transform.position))
+            if(background3.transform.position.x - background3.GetComponent<BoxCollider2D>().size.x <= playerObject.transform.position.x && playerObject.transform.position.x <= background3.transform.position.x + background3.GetComponent<BoxCollider2D>().size.x)
             {
                 background2.transform.position = new Vector3(
                     background3.transform.position.x - background3.GetComponent<BoxCollider2D>().size.x,

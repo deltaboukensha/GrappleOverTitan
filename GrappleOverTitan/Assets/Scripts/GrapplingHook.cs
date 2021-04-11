@@ -22,7 +22,7 @@ public class GrapplingHook : MonoBehaviour
             if (anchored)
             {
                 playerObject.GetComponent<Rigidbody2D>()
-                    .AddForce(Vector3.Normalize((this.transform.position - playerObject.transform.position)) * 10.0f);
+                    .AddForce(Vector3.Normalize((this.transform.position - playerObject.transform.position)) * Time.deltaTime * 10000.0f);
             }
         }
     }

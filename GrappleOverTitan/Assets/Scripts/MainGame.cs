@@ -33,7 +33,7 @@ public class MainGame : MonoBehaviour
         {
             subtract = (int)Camera.main.transform.position.x;
             Instantiate(playerPrefab,
-                new Vector3(Camera.main.transform.position.x, 20, 0),
+                new Vector3(Camera.main.transform.position.x, 15, 0),
                 Quaternion.identity
             );
         }
@@ -48,7 +48,7 @@ public class MainGame : MonoBehaviour
                         (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position, Vector3.forward)
                 );
                 grapplingHookObject.GetComponent<Rigidbody2D>()
-                    .AddForce(Vector3.Normalize((Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position) * 4000.0f);
+                    .AddForce(Vector3.Normalize((Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position) * Time.deltaTime * 2*1000000.0f);
 
                 grapplingCableObject = Instantiate(grapplingCablePrefab,
                     playerObject.transform.position,
@@ -83,7 +83,7 @@ public class MainGame : MonoBehaviour
                         (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position, Vector3.forward)
                 );
                 grapplingHookObject2.GetComponent<Rigidbody2D>()
-                    .AddForce(Vector3.Normalize((Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position) * 4000.0f);
+                    .AddForce(Vector3.Normalize((Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerObject.transform.position) * Time.deltaTime * 2*1000000.0f);
 
                 grapplingCableObject2 = Instantiate(grapplingCablePrefab,
                     playerObject.transform.position,

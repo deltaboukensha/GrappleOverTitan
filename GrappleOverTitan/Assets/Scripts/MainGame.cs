@@ -18,7 +18,7 @@ public class MainGame : MonoBehaviour
     private float treeSpawnX = 15;
     private int score = 0;
     private int subtract = 0;
-    private int deadFrames = 0;
+    private float deadTime = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -32,11 +32,11 @@ public class MainGame : MonoBehaviour
 
         if(playerObject == null)
         {
-            deadFrames++;
+            deadTime += Time.deltaTime;
 
-            if(deadFrames >= 60 * 10)
+            if(deadTime >= 2)
             {
-                deadFrames = 0;
+                deadTime = 0;
                 subtract = (int)Camera.main.transform.position.x;
                 Instantiate(playerPrefab,
                     new Vector3(Camera.main.transform.position.x, 15, 0),

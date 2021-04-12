@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4360658857822321870}
   - component: {fileID: 4360658857822321869}
   - component: {fileID: 4360658857822321868}
+  - component: {fileID: 207658930126720082}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -113,11 +114,24 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &207658930126720082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360658857822321867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4a31bdab093794697590ddb21f70db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodPrefab: {fileID: 3324853131881697867, guid: a203c3ab509d0d045ab760c1fd6e56b7, type: 3}

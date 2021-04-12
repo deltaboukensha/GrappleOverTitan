@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2635949169086562943}
   - component: {fileID: 2635949169086562936}
   - component: {fileID: 415426295}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Titan
   m_TagString: Titan
   m_Icon: {fileID: 0}

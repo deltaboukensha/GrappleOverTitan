@@ -15,11 +15,11 @@ TagManager:
   - Water
   - UI
   - Player
-  - PlayerMagic
+  - Hook
   - Enemy
-  - 
-  - 
-  - 
+  - Deadly
+  - Blocking
+  - Hookable
   - 
   - 
   - 

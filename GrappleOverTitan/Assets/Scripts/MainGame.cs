@@ -114,34 +114,5 @@ public class MainGame : MonoBehaviour
                 Destroy(grapplingCableObject2);
             }
         }
-
-        if(playerObject != null && playerObject.transform.position.x + 20 >= titanSpawnX)
-        {
-            var titanObject = Instantiate(titanPrefab,
-                new Vector3(titanSpawnX, Random.value * 4 - 5, 0),
-                Quaternion.identity);
-
-            titanSpawnX += 5 + Random.value * 5;
-        }
-
-        if(playerObject != null && playerObject.transform.position.x + 20 >= treeSpawnX)
-        {
-            var treeBranchObject = Instantiate(treeBranchPrefab,
-                new Vector3(treeSpawnX, 7 - Random.value * 6, 0),
-                Quaternion.identity);
-
-            treeSpawnX += 4 + Random.value * 5;
-        }
-
-        if(playerObject != null)
-        {
-            score = (int)Mathf.Max(score, playerObject.transform.position.x) - subtract;
-
-            var scoreObject = GameObject.FindWithTag("Score");
-            if(scoreObject != null)
-            {
-                scoreObject.GetComponent<TMPro.TextMeshProUGUI>().text = "" + score;
-            }
-        }
     }
 }

@@ -12,7 +12,9 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Titan" || collision.gameObject.tag == "Ground")
+        var isDeadlyCollision = collision.collider.gameObject.layer == LayerMask.NameToLayer("Deadly");
+
+        if(isDeadlyCollision)
         {
             Destroy(this.gameObject);
             var bloodObject = Instantiate(bloodPrefab,

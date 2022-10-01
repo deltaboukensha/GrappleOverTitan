@@ -16,8 +16,6 @@ public class MainGame : MonoBehaviour
     private GameObject grapplingCableObject2;
     private float titanSpawnX = 15;
     private float treeSpawnX = 15;
-    private int score = 0;
-    private int subtract = 0;
     private float deadTime = 0;
 
     // Start is called before the first frame update
@@ -37,9 +35,8 @@ public class MainGame : MonoBehaviour
             if(deadTime >= 2)
             {
                 deadTime = 0;
-                subtract = (int)Camera.main.transform.position.x;
                 Instantiate(playerPrefab,
-                    new Vector3(Camera.main.transform.position.x, 15, 0),
+                    new Vector3(0, 0, 0),
                     Quaternion.identity
                 );
             }

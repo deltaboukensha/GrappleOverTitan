@@ -47,3 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Trees
+    uniqueID: 1396033703
+    locked: 0
+  - name: Titans
+    uniqueID: 2047394353
+    locked: 0
+  - name: Player
+    uniqueID: 2695047765
+    locked: 0
